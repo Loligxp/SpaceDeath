@@ -6777,7 +6777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1618570916173075891, guid: 517146255f67cd24c8eb6b7d82bf585c, type: 3}
       propertyPath: weapons.Array.data[2].weaponName
-      value: Homing Rockets
+      value: Homing Missile
       objectReference: {fileID: 0}
     - target: {fileID: 1618570916173075891, guid: 517146255f67cd24c8eb6b7d82bf585c, type: 3}
       propertyPath: weapons.Array.data[3].weaponName
