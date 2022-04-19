@@ -14,10 +14,13 @@ public class Player : MonoBehaviour
     private AudioSource Audio;
 
     [Header("stats")] 
+    [SerializeField] private bool _debugInvincibility;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
     [SerializeField] private SpriteRenderer SPR;
+    
+    
     
     [Header("References")]
     private PlayerInput _playerInput;
@@ -103,7 +106,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
 
-        if (col.CompareTag("Enemy"))
+        if (col.CompareTag("Enemy") && !_debugInvincibility)
         {
             Destroy(col.gameObject);
             currentHealth -= col.GetComponent<Enemy>().damage;

@@ -84,6 +84,7 @@ MonoBehaviour:
   moveSpeed: 60
   maxHealth: 10
   currentHealth: 10
+  SPR: {fileID: 0}
   graphicPivot: {fileID: 35559817329403474}
   velocityGraphic: {fileID: 1220882577}
 --- !u!114 &35559817157537346

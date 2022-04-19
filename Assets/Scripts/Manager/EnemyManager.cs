@@ -7,13 +7,17 @@ using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 using Random = UnityEngine.Random;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : MonoSingleton<EnemyManager>
 {
     [SerializeField] private GameObject[] enemies;
-    [SerializeField] private float difficultyLevel;
+    [SerializeField] public float difficultyLevel;
     [SerializeField] private float spawnDistance;
     
+    private int maxEnemies = 300;
     private float timer;
+    
+    private List<Transform> enemiesAlive = new List<Transform>();
+    private int currentEnemyCount = 0;
     
     private void Update()
     {
@@ -28,9 +32,41 @@ public class EnemyManager : MonoBehaviour
             spawnDir.Normalize();
 
             var enemyChosen = Random.Range(0, enemies.Length);
+            if (difficultyLevel < 50)
+                enemyChosen = 0;
+            else if (difficultyLevel < 100)
+                enemyChosen = Random.Range(0, 2);
+            
+            
             Instantiate(enemies[enemyChosen], playerPos + (spawnDir * spawnDistance), quaternion.identity);
-
-            timer = Mathf.Clamp(enemyChosen + 0.4f - (difficultyLevel) / 200,0.02f,5f);
+            timer = Mathf.Clamp(enemyChosen == 0? 1f : 2f  + 0.4f - (difficultyLevel) / 200,0.05f,5f);
         }
+    }
+    
+    public void AddEnemy(Transform newEnemy)
+    {
+        currentEnemyCount++;
+        enemiesAlive.Add(newEnemy);
+
+
+        if (currentEnemyCount > maxEnemies)
+        {
+            ForceRemove(enemiesAlive[0]);
+        }
+    }
+    
+    public void RemoveEnemy(Transform destroyedEnemy)
+    {
+        currentEnemyCount--;
+
+        enemiesAlive.Remove(destroyedEnemy);
+    }
+
+    public void ForceRemove(Transform destroyedEnemy)
+    {
+        currentEnemyCount--;
+        
+        Destroy(destroyedEnemy.gameObject);
+        enemiesAlive.Remove(destroyedEnemy);
     }
 }

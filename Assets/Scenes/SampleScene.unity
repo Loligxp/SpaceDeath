@@ -7908,6 +7908,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1627087701}
     m_Modifications:
     - target: {fileID: 6006047327433878168, guid: 9c50c01dfeab20d4a9d7321213c26a70, type: 3}
+      propertyPath: difficultyLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006047327433878168, guid: 9c50c01dfeab20d4a9d7321213c26a70, type: 3}
       propertyPath: enemies.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -8022,11 +8026,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7078274248579333617, guid: e4fb591d0f1d78643b880d987dfec93a, type: 3}
       propertyPath: currentXP
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7078274248579333617, guid: e4fb591d0f1d78643b880d987dfec93a, type: 3}
       propertyPath: XPRequired
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7078274248579333618, guid: e4fb591d0f1d78643b880d987dfec93a, type: 3}
       propertyPath: m_Name

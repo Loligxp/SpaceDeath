@@ -443,6 +443,22 @@ PrefabInstance:
       propertyPath: XP_gained
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1246529130262083604, guid: f5a19cd9cac80214399b57af722b7d7c, type: 3}
+      propertyPath: lineRends.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246529130262083604, guid: f5a19cd9cac80214399b57af722b7d7c, type: 3}
+      propertyPath: lineRends.Array.data[1]
+      value: 
+      objectReference: {fileID: 2617755451345560471}
+    - target: {fileID: 1246529130262083604, guid: f5a19cd9cac80214399b57af722b7d7c, type: 3}
+      propertyPath: lineRends.Array.data[2]
+      value: 
+      objectReference: {fileID: 3216324384293925005}
+    - target: {fileID: 1246529130262083604, guid: f5a19cd9cac80214399b57af722b7d7c, type: 3}
+      propertyPath: lineRends.Array.data[3]
+      value: 
+      objectReference: {fileID: 8020734640189498886}
     - target: {fileID: 1364496028137410814, guid: f5a19cd9cac80214399b57af722b7d7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -455,6 +471,14 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 5748826933721036846, guid: f5a19cd9cac80214399b57af722b7d7c, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798464605412695372, guid: f5a19cd9cac80214399b57af722b7d7c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 614278994, guid: 71fec6a28203cdd4b866c3d86b41f986, type: 3}
     - target: {fileID: 8024555949567231621, guid: f5a19cd9cac80214399b57af722b7d7c, type: 3}
       propertyPath: m_RootOrder
       value: 0
