@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class UI_Manager : MonoSingleton<UI_Manager>
 {
+    private int _highlightedUpgrade;
     public bool mainMenu;
     private float timeSurvived;
     public enum UI_State
@@ -31,7 +32,9 @@ public class UI_Manager : MonoSingleton<UI_Manager>
     [SerializeField] private RectTransform healthFill, xpFill;
     [SerializeField] private TextMeshProUGUI healthText, xpText;
     [SerializeField] private TextMeshProUGUI timeSurvivedText;
-
+    [SerializeField] private TextMeshProUGUI upgradeDescription;
+    [SerializeField] private Sprite[] backGroundSprites;
+    
     private Player _player;
 
     [Header("options")] 
@@ -169,16 +172,52 @@ public class UI_Manager : MonoSingleton<UI_Manager>
 
     }
 
-    public void SetUpgrade(int ID, Sprite newImage, string newText, string newLevel)
+    public void SetUpgrade(int ID, Sprite newImage, string newText, int newLevel, string description)
     {
         UI_UpgradePanels[ID].upgradeImage.sprite = newImage;
         UI_UpgradePanels[ID].upgradeText.text = newText;
-        UI_UpgradePanels[ID].upgradeLevel.text = newLevel;
+        UI_UpgradePanels[ID].upgradeBar.fillAmount = 0.1f * newLevel - 0.05f + (newLevel == 10 ? 0.05f : 0f);
+        UI_UpgradePanels[ID].upgradeBackground.sprite = backGroundSprites[newLevel - 1];
+        UI_UpgradePanels[ID].description = description;
+        
+        
+        switch (newLevel)
+        {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            case 10:
+                break;
+            case 11:
+                break;
+        }
     }
 
-    public void SelectUpgrade(int upgradeNum)
+    public void HighlightUpgrade(int _ID)
     {
-        UpgradeManager.Instance.DoUpgrade(upgradeNum);
+        upgradeDescription.text = UI_UpgradePanels[_ID].description;
+        _highlightedUpgrade = _ID;
+    }
+
+    public void SelectUpgrade()
+    {
+        UpgradeManager.Instance.DoUpgrade(_highlightedUpgrade);
+        upgradeDescription.text = "Select Upgrade";
     }
 
     public void changeUIState(UI_State newState)
@@ -214,6 +253,8 @@ public class UI_Manager : MonoSingleton<UI_Manager>
 public struct UpgradePanel
 {
     public Image upgradeImage;
+    public Image upgradeBackground;
     public TextMeshProUGUI upgradeText;
-    public TextMeshProUGUI upgradeLevel;
+    public Image upgradeBar;
+    public string description;
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 80bfa902e3117a44c969b3960cb658df
+guid: 6139c5c39a6ef55498432f07deba8e78
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -10,7 +10,8 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - MiniPixel
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 33ce18c43450ff5489dcb0955952e5e8, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

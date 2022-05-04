@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71b58599600d1949905def40c46b1f0, type: 3}
+  m_Name: Main Cannon
+  m_EditorClassIdentifier: 
+  name: Main Cannon
+  image: {fileID: -1108244845, guid: 71fec6a28203cdd4b866c3d86b41f986, type: 3}
+  levels:
+  - {fileID: 11400000, guid: c9aaaab5fd21e654fae531ee0e376ed5, type: 2}
+  - {fileID: 11400000, guid: 21967faae59f1fc4cb5d25eebae2cfcd, type: 2}
+  - {fileID: 11400000, guid: 26abc343a42bd3442b5287c84020cc37, type: 2}
+  - {fileID: 11400000, guid: 9a27a4530770c7642b1d10068ce3c4ca, type: 2}
+  - {fileID: 11400000, guid: 5fe1e2ac6fcb8e444a581d4178cefeb7, type: 2}
+  - {fileID: 11400000, guid: ac2e30be3c619b84d869f58f0668d868, type: 2}
+  - {fileID: 11400000, guid: c2870bf66d7876e49b1b31639e6b3341, type: 2}
+  - {fileID: 11400000, guid: 6229cdc0f0933944c8ee92dfa852f3a0, type: 2}
+  - {fileID: 11400000, guid: a304c437c6150aa47a3623a4b41ed1ef, type: 2}
+  - {fileID: 11400000, guid: 215af3144e27a0f488da4f18e315f886, type: 2}
+  currentLevel: 0
+  fireCooldown: 0
+  fixedWeapon: 0

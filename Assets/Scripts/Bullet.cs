@@ -30,4 +30,12 @@ public class Bullet : MonoBehaviour
             piercing--;
         }
     }
+
+    public void SetValues(float _damage, float _speed, int _piercing)
+    {
+        speed = _speed;
+        damage = _damage;
+        piercing = _piercing;
+
+    }
 }

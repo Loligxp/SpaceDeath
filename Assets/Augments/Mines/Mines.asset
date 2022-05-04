@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71b58599600d1949905def40c46b1f0, type: 3}
+  m_Name: Mines
+  m_EditorClassIdentifier: 
+  name: Mines
+  image: {fileID: -729494091, guid: 71fec6a28203cdd4b866c3d86b41f986, type: 3}
+  levels:
+  - {fileID: 11400000, guid: 3951999c0e97fc74aa8761f5bd07ad1a, type: 2}
+  - {fileID: 11400000, guid: 1e061a9795fee3f4794fe0626eb489e8, type: 2}
+  - {fileID: 11400000, guid: 0280b8141df85ea43a8011b748b36f34, type: 2}
+  - {fileID: 11400000, guid: afebc305b0dcff440af98d0b83393fbd, type: 2}
+  - {fileID: 11400000, guid: 7d605d19ec204084781f90badc41e5b8, type: 2}
+  - {fileID: 11400000, guid: 85f8f0453bc40c94c86467140266d4df, type: 2}
+  - {fileID: 11400000, guid: e476697ac64d5e441b46c2659d8cb310, type: 2}
+  - {fileID: 11400000, guid: 43690868377016f419f8709f0a681bf8, type: 2}
+  - {fileID: 11400000, guid: eb9ed975e1c51554a9daeaff04e829a2, type: 2}
+  - {fileID: 11400000, guid: 0aaa8755101bd874182344dd4996c6bc, type: 2}
+  currentLevel: 9
+  fireCooldown: 1.9326751
+  fixedWeapon: 1

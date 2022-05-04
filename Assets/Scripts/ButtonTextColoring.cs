@@ -14,6 +14,8 @@ public class ButtonTextColoring : MonoBehaviour, IPointerDownHandler, IPointerUp
     [SerializeField] private Color selectedColor;
     [SerializeField] private Color clickedColor;
 
+    private bool _mouseDown;
+    
     private void Awake()
     {
         _EV = EventSystem.current;;
@@ -21,25 +23,24 @@ public class ButtonTextColoring : MonoBehaviour, IPointerDownHandler, IPointerUp
 
     public void Update()
     {
-        if (_EV.currentSelectedGameObject == this.gameObject)
-        {
-            targetText.color = selectedColor;
-        }
-        else
-        {
-            targetText.color = neutralColor;
-        }
+        if(_mouseDown)
+            return;
+
+        targetText.color = _EV.currentSelectedGameObject == this.gameObject ? selectedColor : neutralColor;
     }
 
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        _mouseDown = true;
         targetText.color = clickedColor;
 
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        _mouseDown = false;
+        
         targetText.color = neutralColor;
 
     }

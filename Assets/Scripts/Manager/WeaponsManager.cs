@@ -5,52 +5,73 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 public class WeaponsManager : MonoSingleton<WeaponsManager>
 {
-    [SerializeField] private WeaponStruct[] weapons;
-
-    public int GetRandomWeaponID()
+    [SerializeField] private AugmentContainer[] augment;
+    [SerializeField] private GameObject basicBullet;
+    
+    public int GetRandomAugmentID()
     {
-        return Random.Range(0, weapons.Length);
+        return Random.Range(0, augment.Length);
     }
 
-    public WeaponStruct GetWeapon(int ID)
+    public AugmentContainer GetWeapon(int ID)
     {
-        return weapons[ID];
+        return augment[ID];
     }
 
     public void UpgradeWeapon(int weaponID, int newLevel)
     {
-        weapons[weaponID].currentLevel = newLevel;
+        augment[weaponID].currentLevel = newLevel;
     }
 
     private void Start()
     {
-        for (int i = 0; i < weapons.Length; i++)
+        for (int i = 0; i < augment.Length; i++)
         {
-            weapons[i].currentLevel = -1;
+            augment[i].currentLevel = -1;
         }
     }
 
     private void Update()
     {
-        for (int i = 0; i < weapons.Length; i++)
+        for (int i = 0; i < augment.Length; i++)
         {
-            weapons[i].fireCooldown += Time.deltaTime;
+            augment[i].fireCooldown += Time.deltaTime;
         }
     }
 
     public void ShootPrimaryWeapons(Transform weaponCaller, Transform VelocityTransform)
     {
-        for (int i = 0; i < weapons.Length; i++)
+        for (int i = 0; i < augment.Length; i++)
         {
-            if (weapons[i].currentLevel < 0) continue;
-            if (!(weapons[i].fireCooldown > 1 / weapons[i].weaponLevels[weapons[i].currentLevel].fireRate)) continue;
+            if (augment[i].currentLevel < 0) continue;
+            if (!(augment[i].fireCooldown > 1 / augment[i].levels[augment[i].currentLevel].fireRate)) continue;
             
-            weapons[i].fireCooldown = 0;
+            augment[i].fireCooldown = 0;
+
+            switch (augment[i].levels[augment[i].currentLevel].type)
+            {
+                case AugmentLevel.AugmentType.MainCannon:
+                case AugmentLevel.AugmentType.Mine:
+                    ShootMainCannon(weaponCaller,VelocityTransform, augment[i]);
+                    break;
+                case AugmentLevel.AugmentType.Broadside:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
             
-            if(!weapons[i].fixedWeapon)
-                Instantiate(weapons[i].weaponLevels[weapons[i].currentLevel].bulletPrefab, weaponCaller.position, weaponCaller.rotation);
-            if(weapons[i].fixedWeapon)
-                Instantiate(weapons[i].weaponLevels[weapons[i].currentLevel].bulletPrefab, weaponCaller.position, VelocityTransform.rotation);
+            //if(!augment[i].fixedWeapon)
+            //    Instantiate(augment[i].levels[augment[i].currentLevel].bulletPrefab, weaponCaller.position, weaponCaller.rotation);
+            //if(augment[i].fixedWeapon)
+            //    Instantiate(augment[i].levels[augment[i].currentLevel].bulletPrefab, weaponCaller.position, VelocityTransform.rotation);
         }
+    }
+
+    public void ShootMainCannon(Transform weaponCaller, Transform VelocityTransform, AugmentContainer augment)
+    {
+        var bullet = Instantiate(augment.levels[augment.currentLevel].bulletPrefab, weaponCaller.position, weaponCaller.rotation);
+        var bulletScript = bullet.GetComponent<Bullet>();
+        
+        bulletScript.SetValues(augment.levels[augment.currentLevel].bulletDamage,augment.levels[augment.currentLevel].bulletSpeed, augment.levels[augment.currentLevel].bulletPierce);
     }
 }
